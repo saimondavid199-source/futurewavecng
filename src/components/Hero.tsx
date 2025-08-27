@@ -57,7 +57,7 @@ export const Hero = () => {
         });
         
         // Trigger download
-        forceDownload("/cng-conversion-guide.pdf", "CNG_Conversion_Guide.pdf");
+        await forceDownload("/cng-conversion-guide.pdf", "CNG_Conversion_Guide.pdf");
       } else {
         toast({
           title: "Error",

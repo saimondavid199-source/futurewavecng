@@ -2,31 +2,58 @@
  * Force download a file by creating a temporary link element
  * This ensures the file is downloaded rather than opened in the browser
  */
-export const forceDownload = (url: string, filename: string): void => {
-  // Create a temporary anchor element
-  const link = document.createElement('a');
-  
-  // Set the href and download attributes
-  link.href = url;
-  link.download = filename;
-  
-  // Prevent the link from being visible
-  link.style.display = 'none';
-  
-  // Add additional attributes to force download
-  link.target = '_blank';
-  link.rel = 'noopener noreferrer';
-  
-  // Append to body (required for Firefox)
-  document.body.appendChild(link);
-  
-  // Trigger the download
-  link.click();
-  
-  // Clean up - remove the link after a short delay
-  setTimeout(() => {
-    if (document.body.contains(link)) {
-      document.body.removeChild(link);
+export const forceDownload = async (url: string, filename: string): Promise<void> => {
+  try {
+    // First try to fetch the file to ensure it exists and is valid
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch file: ${response.status}`);
     }
-  }, 100);
+    
+    // Create blob from response
+    const blob = await response.blob();
+    
+    // Create object URL from blob
+    const blobUrl = URL.createObjectURL(blob);
+    
+    // Create a temporary anchor element
+    const link = document.createElement('a');
+    
+    // Set the href and download attributes
+    link.href = blobUrl;
+    link.download = filename;
+    
+    // Prevent the link from being visible
+    link.style.display = 'none';
+    
+    // Append to body (required for Firefox)
+    document.body.appendChild(link);
+    
+    // Trigger the download
+    link.click();
+    
+    // Clean up - remove the link and revoke object URL
+    setTimeout(() => {
+      if (document.body.contains(link)) {
+        document.body.removeChild(link);
+      }
+      URL.revokeObjectURL(blobUrl);
+    }, 100);
+    
+  } catch (error) {
+    console.error('Download failed:', error);
+    // Fallback to simple link approach
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    setTimeout(() => {
+      if (document.body.contains(link)) {
+        document.body.removeChild(link);
+      }
+    }, 100);
+  }
 };
