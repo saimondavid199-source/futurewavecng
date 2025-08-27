@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { sendLeadEmail, type LeadFormData } from "@/lib/emailjs";
+import { forceDownload } from "@/lib/download";
 import heroFuelImage from "@/assets/hero-fuel-frustration.jpg";
 import heroHappyImage from "@/assets/hero-cng-happy.jpg";
 
@@ -56,12 +57,7 @@ export const Hero = () => {
         });
         
         // Trigger download
-        const link = document.createElement('a');
-        link.href = "/cng-conversion-guide.pdf";
-        link.download = "CNG_Conversion_Guide.pdf";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        forceDownload("/cng-conversion-guide.pdf", "CNG_Conversion_Guide.pdf");
       } else {
         toast({
           title: "Error",
