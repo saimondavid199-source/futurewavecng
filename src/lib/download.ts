@@ -4,17 +4,18 @@
  */
 export const forceDownload = async (url: string, filename: string): Promise<void> => {
   try {
-    // First try to fetch the file to ensure it exists and is valid
+    // Fetch the PDF file
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Failed to fetch file: ${response.status}`);
     }
     
-    // Create blob from response
+    // Create blob with explicit PDF mime type
     const blob = await response.blob();
+    const pdfBlob = new Blob([blob], { type: 'application/pdf' });
     
     // Create object URL from blob
-    const blobUrl = URL.createObjectURL(blob);
+    const blobUrl = URL.createObjectURL(pdfBlob);
     
     // Create a temporary anchor element
     const link = document.createElement('a');
@@ -42,12 +43,11 @@ export const forceDownload = async (url: string, filename: string): Promise<void
     
   } catch (error) {
     console.error('Download failed:', error);
-    // Fallback to simple link approach
+    // Fallback: Direct download with proper headers
     const link = document.createElement('a');
     link.href = url;
     link.download = filename;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
+    link.style.display = 'none';
     document.body.appendChild(link);
     link.click();
     setTimeout(() => {
