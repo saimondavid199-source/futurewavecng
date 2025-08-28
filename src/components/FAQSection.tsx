@@ -83,10 +83,10 @@ export const FAQSection = () => {
                 📞 Call Us: +234 904 040 9000
               </a>
               <a 
-                href="tel:+2349940408000" 
+                href="tel:+2349040408000" 
                 className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary-hover transition-colors"
               >
-                📞 Alt: +234 994 040 8000
+                📞 Alt: +234 904 040 8000
               </a>
               <a 
                 href="https://wa.me/2349040409000" 
