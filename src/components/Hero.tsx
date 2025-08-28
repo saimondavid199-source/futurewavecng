@@ -109,7 +109,7 @@ export const Hero = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-white leading-relaxed font-semibold drop-shadow-lg">
-              Discover how over <span className="font-bold text-white">50 Nigerians</span> are saving{" "}
+              Discover how over <span className="font-bold text-white">50K Nigerians</span> are saving{" "}
               <span className="font-bold text-white">50%+</span> on fuel with Futurewave CNG.
             </p>
             

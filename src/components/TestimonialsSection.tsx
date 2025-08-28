@@ -61,13 +61,13 @@ export const TestimonialsSection = () => {
             Real People, Real Savings
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Over <span className="font-bold text-primary">50 successful conversions</span> and counting. 
+            Over <span className="font-bold text-primary">50K successful conversions</span> and counting. 
             Here's what our customers say about their CNG experience:
           </p>
           
           <div className="mt-8 bg-card rounded-lg shadow-soft p-8 max-w-2xl mx-auto">
             <YouTubeVideo 
-              videoId="b9HqHRRbo-U" 
+              videoId="5bFiUNamD5U" 
               title="Real Customer Stories - CNG Conversion Success"
             />
           </div>
@@ -104,7 +104,7 @@ export const TestimonialsSection = () => {
 
         <div className="text-center">
           <div className="bg-gradient-savings text-white rounded-lg p-8 max-w-md mx-auto">
-            <h3 className="text-2xl font-bold mb-2">Over 50 Conversions</h3>
+            <h3 className="text-2xl font-bold mb-2">Over 50K Conversions</h3>
             <p className="text-white/90 mb-4">Join the growing community of smart Nigerians saving on fuel</p>
             <div className="text-3xl font-bold">₦15.2M+</div>
             <div className="text-white/80 text-sm">Total Customer Savings This Year</div>
