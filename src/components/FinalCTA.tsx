@@ -88,7 +88,7 @@ export const FinalCTA = () => {
             <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
               Join the growing number of smart Nigerians switching to CNG. 
               <span className="block mt-2 font-semibold">
-                Start saving <span className="text-accent">₦50K+ annually</span> today.
+                Start saving <span className="text-white">₦50K+ annually</span> today.
               </span>
             </p>
 
