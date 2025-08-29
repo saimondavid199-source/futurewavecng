@@ -95,7 +95,7 @@ export const FinalCTA = () => {
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
                 <div className="text-3xl mb-2">🚗</div>
-                <div className="text-lg font-bold mb-1">200+</div>
+                <div className="text-lg font-bold mb-1">50K+</div>
                 <div className="text-white/80 text-sm">Happy Customers</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">

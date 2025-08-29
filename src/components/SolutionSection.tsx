@@ -40,7 +40,16 @@ export const SolutionSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {steps.map((step, index) => (
-            <Card key={index} className="text-center shadow-soft border-0 hover:shadow-strong transition-all duration-300">
+            <Card 
+              key={index} 
+              className="text-center shadow-soft border-0 hover:shadow-strong transition-all duration-300 cursor-pointer"
+              onClick={() => {
+                const element = document.getElementById('lead-form');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               <CardContent className="p-6">
                 <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
                   {step.step}
@@ -91,7 +100,17 @@ export const SolutionSection = () => {
                 </div>
               </div>
               
-              <Button variant="savings" size="lg" className="w-full">
+              <Button 
+                variant="savings" 
+                size="lg" 
+                className="w-full"
+                onClick={() => {
+                  const element = document.getElementById('lead-form');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 Get Your Conversion Quote
               </Button>
             </CardContent>
@@ -134,7 +153,17 @@ export const SolutionSection = () => {
                 </div>
               </div>
               
-              <Button variant="cta" size="lg" className="w-full">
+              <Button 
+                variant="cta" 
+                size="lg" 
+                className="w-full"
+                onClick={() => {
+                  const element = document.getElementById('lead-form');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 Book Fleet Consultation
               </Button>
             </CardContent>
